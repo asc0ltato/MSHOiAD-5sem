@@ -1,14 +1,14 @@
 use Rent;
 
--- 1.Вычисление итогов предоставленных услуг помесячно, за квартал, за полгода, за год.
+-- 1.Р’С‹С‡РёСЃР»РµРЅРёРµ РёС‚РѕРіРѕРІ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРЅС‹С… СѓСЃР»СѓРі РїРѕРјРµСЃСЏС‡РЅРѕ, Р·Р° РєРІР°СЂС‚Р°Р», Р·Р° РїРѕР»РіРѕРґР°, Р·Р° РіРѕРґ.
 WITH ServiceTotals AS (
     SELECT 
         DATEPART(YEAR, o.Start_DateTime) AS ServiceYear,
         DATEPART(MONTH, o.Start_DateTime) AS ServiceMonth,
         DATEPART(QUARTER, o.Start_DateTime) AS ServiceQuarter,
         CASE 
-            WHEN DATEPART(MONTH, o.Start_DateTime) <= 6 THEN 'Первые полгода'
-            ELSE 'Вторые полгода'
+            WHEN DATEPART(MONTH, o.Start_DateTime) <= 6 THEN 'РџРµСЂРІС‹Рµ РїРѕР»РіРѕРґР°'
+            ELSE 'Р’С‚РѕСЂС‹Рµ РїРѕР»РіРѕРґР°'
         END AS ServiceHalfYear,
         p.Payment_Amount
     FROM Orders o
@@ -29,29 +29,29 @@ ORDER BY ServiceYear, ServiceMonth;
 
 INSERT INTO Cars (Car_ID, Status_ID, Brand, Model, YearOf, License_Plate, Rental_Price, Location)
 VALUES 
-(NEXT VALUE FOR seq_Car_ID, 1, 'Ford', 'Focus', 2018, 'А321ВС77', 90.50, 'г.Минск, ул. Янки Купалы, д.5'),
-(NEXT VALUE FOR seq_Car_ID, 1, 'Nissan', 'Qashqai', 2021, 'В654АС77', 110.00, 'г.Минск, ул. Ленина, д.30'),
-(NEXT VALUE FOR seq_Car_ID, 2, 'Volkswagen', 'Passat', 2019, 'С987ДА77', 100.50, 'г.Минск, ул. Калинина, д.18'),
-(NEXT VALUE FOR seq_Car_ID, 1, 'Kia', 'Sportage', 2020, 'Д456МК77', 105.00, 'г.Минск, ул. Богдановича, д.27'),
-(NEXT VALUE FOR seq_Car_ID, 1, 'Chevrolet', 'Tahoe', 2017, 'Е654ОМ77', 140.00, 'г.Минск, ул. Гикало, д.9');
+(NEXT VALUE FOR seq_Car_ID, 1, 'Ford', 'Focus', 2018, 'Рђ321Р’РЎ77', 90.50, 'Рі.РњРёРЅСЃРє, СѓР». РЇРЅРєРё РљСѓРїР°Р»С‹, Рґ.5'),
+(NEXT VALUE FOR seq_Car_ID, 1, 'Nissan', 'Qashqai', 2021, 'Р’654РђРЎ77', 110.00, 'Рі.РњРёРЅСЃРє, СѓР». Р›РµРЅРёРЅР°, Рґ.30'),
+(NEXT VALUE FOR seq_Car_ID, 2, 'Volkswagen', 'Passat', 2019, 'РЎ987Р”Рђ77', 100.50, 'Рі.РњРёРЅСЃРє, СѓР». РљР°Р»РёРЅРёРЅР°, Рґ.18'),
+(NEXT VALUE FOR seq_Car_ID, 1, 'Kia', 'Sportage', 2020, 'Р”456РњРљ77', 105.00, 'Рі.РњРёРЅСЃРє, СѓР». Р‘РѕРіРґР°РЅРѕРІРёС‡Р°, Рґ.27'),
+(NEXT VALUE FOR seq_Car_ID, 1, 'Chevrolet', 'Tahoe', 2017, 'Р•654РћРњ77', 140.00, 'Рі.РњРёРЅСЃРє, СѓР». Р“РёРєР°Р»Рѕ, Рґ.9');
 
 INSERT INTO Users (User_ID, Role_ID, First_Name, Last_Name, Address, Phone_number, Email, Drivers_license)
 VALUES 
-(NEXT VALUE FOR seq_User_ID, 2, 'Сергей', 'Морозов', 'г.Минск, ул. Победителей, д.10', '+37560000006', 'morozov@mail.ru', '8901234567'),
-(NEXT VALUE FOR seq_User_ID, 2, 'Екатерина', 'Зайцева', 'г.Минск, ул. Сухая, д.20', '+37560000007', 'zaitseva@mail.ru', NULL),
-(NEXT VALUE FOR seq_User_ID, 2, 'Николай', 'Федоров', 'г.Минск, ул. Якуба Коласа, д.15', '+37560000008', 'fedorov@mail.ru', '8000555666'),
-(NEXT VALUE FOR seq_User_ID, 2, 'Анна', 'Соколова', 'г.Минск, ул. Машерова, д.13', '+37560000009', 'sokolova@mail.ru', '7300111222'),
-(NEXT VALUE FOR seq_User_ID, 3, 'Василий', 'Ильин', 'г.Минск, ул. Щорса, д.7', '+37560000010', 'ilin@mail.ru', NULL);
+(NEXT VALUE FOR seq_User_ID, 2, 'РЎРµСЂРіРµР№', 'РњРѕСЂРѕР·РѕРІ', 'Рі.РњРёРЅСЃРє, СѓР». РџРѕР±РµРґРёС‚РµР»РµР№, Рґ.10', '+37560000006', 'morozov@mail.ru', '8901234567'),
+(NEXT VALUE FOR seq_User_ID, 2, 'Р•РєР°С‚РµСЂРёРЅР°', 'Р—Р°Р№С†РµРІР°', 'Рі.РњРёРЅСЃРє, СѓР». РЎСѓС…Р°СЏ, Рґ.20', '+37560000007', 'zaitseva@mail.ru', NULL),
+(NEXT VALUE FOR seq_User_ID, 2, 'РќРёРєРѕР»Р°Р№', 'Р¤РµРґРѕСЂРѕРІ', 'Рі.РњРёРЅСЃРє, СѓР». РЇРєСѓР±Р° РљРѕР»Р°СЃР°, Рґ.15', '+37560000008', 'fedorov@mail.ru', '8000555666'),
+(NEXT VALUE FOR seq_User_ID, 2, 'РђРЅРЅР°', 'РЎРѕРєРѕР»РѕРІР°', 'Рі.РњРёРЅСЃРє, СѓР». РњР°С€РµСЂРѕРІР°, Рґ.13', '+37560000009', 'sokolova@mail.ru', '7300111222'),
+(NEXT VALUE FOR seq_User_ID, 3, 'Р’Р°СЃРёР»РёР№', 'РР»СЊРёРЅ', 'Рі.РњРёРЅСЃРє, СѓР». Р©РѕСЂСЃР°, Рґ.7', '+37560000010', 'ilin@mail.ru', NULL);
 
 INSERT INTO Payments (Payment_ID, Payment_Amount, Payment_Date, Payment_Method)
 VALUES 
-(NEXT VALUE FOR seq_Payment_ID, 15200.00, '2024-10-01', 'Карта'),
-(NEXT VALUE FOR seq_Payment_ID, 12375.50, '2024-10-05', 'Наличка'),
-(NEXT VALUE FOR seq_Payment_ID, 8900.00, '2024-10-10', 'Карта'),
-(NEXT VALUE FOR seq_Payment_ID, 17500.00, '2024-10-15', 'Карта'),
-(NEXT VALUE FOR seq_Payment_ID, 11350.00, '2024-10-20', 'Наличка'),
-(NEXT VALUE FOR seq_Payment_ID, 24700.00, '2024-10-25', 'Карта'),
-(NEXT VALUE FOR seq_Payment_ID, 18900.00, '2024-10-30', 'Карта');
+(NEXT VALUE FOR seq_Payment_ID, 15200.00, '2024-10-01', 'РљР°СЂС‚Р°'),
+(NEXT VALUE FOR seq_Payment_ID, 12375.50, '2024-10-05', 'РќР°Р»РёС‡РєР°'),
+(NEXT VALUE FOR seq_Payment_ID, 8900.00, '2024-10-10', 'РљР°СЂС‚Р°'),
+(NEXT VALUE FOR seq_Payment_ID, 17500.00, '2024-10-15', 'РљР°СЂС‚Р°'),
+(NEXT VALUE FOR seq_Payment_ID, 11350.00, '2024-10-20', 'РќР°Р»РёС‡РєР°'),
+(NEXT VALUE FOR seq_Payment_ID, 24700.00, '2024-10-25', 'РљР°СЂС‚Р°'),
+(NEXT VALUE FOR seq_Payment_ID, 18900.00, '2024-10-30', 'РљР°СЂС‚Р°');
 
 INSERT INTO Orders (Order_ID, User_ID, Car_ID, Payment_ID, Start_DateTime, End_DateTime)
 VALUES 
@@ -103,10 +103,10 @@ select * from Orders;
 select * from Users;
 select * from Cars;
 
---2 Вычисление итогов предоставленных услуг за период:
---	объем услуг;
---	сравнение их с общим объемом услуг (в %);
---	сравнение с наибольшим объемом услуг (в %).
+--2 Р’С‹С‡РёСЃР»РµРЅРёРµ РёС‚РѕРіРѕРІ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРЅС‹С… СѓСЃР»СѓРі Р·Р° РїРµСЂРёРѕРґ:
+--	РѕР±СЉРµРј СѓСЃР»СѓРі;
+--	СЃСЂР°РІРЅРµРЅРёРµ РёС… СЃ РѕР±С‰РёРј РѕР±СЉРµРјРѕРј СѓСЃР»СѓРі (РІ %);
+--	СЃСЂР°РІРЅРµРЅРёРµ СЃ РЅР°РёР±РѕР»СЊС€РёРј РѕР±СЉРµРјРѕРј СѓСЃР»СѓРі (РІ %).
 WITH ServiceVolumes AS (
     SELECT 
         o.Car_ID,
@@ -130,8 +130,8 @@ SELECT
 FROM ServiceVolumes sv
 ORDER BY sv.ServiceYear, sv.ServiceMonth;
 
---3. Продемонстрируйте применение функции ранжирования ROW_NUMBER() для разбиения результатов 
---запроса на страницы (по 20 строк на каждую страницу).
+--3. РџСЂРѕРґРµРјРѕРЅСЃС‚СЂРёСЂСѓР№С‚Рµ РїСЂРёРјРµРЅРµРЅРёРµ С„СѓРЅРєС†РёРё СЂР°РЅР¶РёСЂРѕРІР°РЅРёСЏ ROW_NUMBER() РґР»СЏ СЂР°Р·Р±РёРµРЅРёСЏ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ 
+--Р·Р°РїСЂРѕСЃР° РЅР° СЃС‚СЂР°РЅРёС†С‹ (РїРѕ 20 СЃС‚СЂРѕРє РЅР° РєР°Р¶РґСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ).
 DECLARE @PageNumber INT;
 SET @PageNumber = 1;
 
@@ -152,7 +152,7 @@ SELECT
 FROM RankedOrders
 WHERE RowNum > (20 * (@PageNumber - 1)) AND RowNum <= (20 * @PageNumber);
 
---4.Продемонстрируйте применение функции ранжирования ROW_NUMBER() для удаления дубликатов.
+--4.РџСЂРѕРґРµРјРѕРЅСЃС‚СЂРёСЂСѓР№С‚Рµ РїСЂРёРјРµРЅРµРЅРёРµ С„СѓРЅРєС†РёРё СЂР°РЅР¶РёСЂРѕРІР°РЅРёСЏ ROW_NUMBER() РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РґСѓР±Р»РёРєР°С‚РѕРІ.
 WITH RankedOrders AS (
 SELECT 
     ROW_NUMBER() OVER (PARTITION BY Car_ID, Start_DateTime ORDER BY Order_ID) AS RowNum,
@@ -177,7 +177,7 @@ SELECT *
 FROM RankedOrders
 WHERE RowNum > 1;
 
---5.Вернуть для каждого вида клиентов суммы за аренду последних 6 месяцев помесячно.
+--5.Р’РµСЂРЅСѓС‚СЊ РґР»СЏ РєР°Р¶РґРѕРіРѕ РІРёРґР° РєР»РёРµРЅС‚РѕРІ СЃСѓРјРјС‹ Р·Р° Р°СЂРµРЅРґСѓ РїРѕСЃР»РµРґРЅРёС… 6 РјРµСЃСЏС†РµРІ РїРѕРјРµСЃСЏС‡РЅРѕ.
 WITH LastSixMonthsRentals AS (
     SELECT 
         r.Role_Name AS UserRole,             
@@ -199,8 +199,8 @@ SELECT
 FROM LastSixMonthsRentals
 ORDER BY UserRole, RentYear, RentMonth;
 
---6.Какая услуга была предоставлена наибольшее число раз для определенного вида?
---Вернуть для всех клиентов.
+--6.РљР°РєР°СЏ СѓСЃР»СѓРіР° Р±С‹Р»Р° РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅР° РЅР°РёР±РѕР»СЊС€РµРµ С‡РёСЃР»Рѕ СЂР°Р· РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РІРёРґР°?
+--Р’РµСЂРЅСѓС‚СЊ РґР»СЏ РІСЃРµС… РєР»РёРµРЅС‚РѕРІ.
 WITH ServiceRankings AS (
     SELECT 
         r.Role_Name,                    

@@ -90,9 +90,9 @@ NO CACHE;
 
 INSERT INTO Status (Status_ID, Status_Name)
 VALUES 
-(1, 'Доступен'),
-(2, 'Арендован'),
-(3, 'В ремонте');
+(1, 'Р”РѕСЃС‚СѓРїРµРЅ'),
+(2, 'РђСЂРµРЅРґРѕРІР°РЅ'),
+(3, 'Р’ СЂРµРјРѕРЅС‚Рµ');
 
 INSERT INTO Role (Role_ID, Role_Name)
 VALUES 
@@ -103,27 +103,27 @@ VALUES
 
 INSERT INTO Cars (Car_ID, Status_ID, Brand, Model, YearOf, License_Plate, Rental_Price, Location)
 VALUES 
-(NEXT VALUE FOR seq_Car_ID, 1, 'Toyota', 'Camry', 2020, 'А123ВС77', 120.50, 'г.Минск, ул. Белорусская, д.19'),
-(NEXT VALUE FOR seq_Car_ID, 2, 'Hyundai', 'Solaris', 2019, 'В456АС77', 100.99, 'г.Минск, ул. Казинца, д.23'),
-(NEXT VALUE FOR seq_Car_ID, 3, 'BMW', 'X5', 2021, 'С789ДА77', 130.99, 'г.Минск, ул. Свердлова, д.11'),
-(NEXT VALUE FOR seq_Car_ID, 1, 'Audi', 'A6', 2015, 'Е987МК77', 80.00, 'г.Минск, ул. Петра Глебки, д.9'),
-(NEXT VALUE FOR seq_Car_ID, 2, 'Mercedes', 'C-Class', 2022, 'Р654ОМ77', 150.00, 'г.Минск, ул. Белорусская, д.19');
+(NEXT VALUE FOR seq_Car_ID, 1, 'Toyota', 'Camry', 2020, 'Рђ123Р’РЎ77', 120.50, 'Рі. РњРёРЅСЃРє, СѓР». Р‘РµР»РѕСЂСѓСЃСЃРєР°СЏ, Рґ.19'),
+(NEXT VALUE FOR seq_Car_ID, 2, 'Hyundai', 'Solaris', 2019, 'Р’456РђРЎ77', 100.99, 'Рі. РњРёРЅСЃРє, СѓР». РљР°Р·РёРЅС†Р°, Рґ.23'),
+(NEXT VALUE FOR seq_Car_ID, 3, 'BMW', 'X5', 2021, 'РЎ789Р”Рђ77', 130.99, 'Рі. РњРёРЅСЃРє, СѓР». РЎРІРµСЂРґР»РѕРІР°, Рґ.11'),
+(NEXT VALUE FOR seq_Car_ID, 1, 'Audi', 'A6', 2015, 'Р•987РњРљ77', 80.00, 'Рі. РњРёРЅСЃРє, СѓР». РџРµС‚СЂР° Р“Р»РµР±РєРё, Рґ.9'),
+(NEXT VALUE FOR seq_Car_ID, 2, 'Mercedes', 'C-Class', 2022, 'Р 654РћРњ77', 150.00, 'Рі. РњРёРЅСЃРє, СѓР». Р‘РµР»РѕСЂСѓСЃСЃРєР°СЏ, Рґ.19');
 
 INSERT INTO Users (User_ID, Role_ID, First_Name, Last_Name, Address, Phone_number, Email, Drivers_license)
 VALUES 
-(NEXT VALUE FOR seq_User_ID, 4, 'Иван', 'Иванов', 'г.Минск, ул. Независимость, д.20', '+37560000001', 'ivanov@mail.ru', NULL),
-(NEXT VALUE FOR seq_User_ID, 2, 'Ольга', 'Петрова', 'г.Минск, ул. Партизанская, д.15', '+37560000002', 'petrova@mail.ru', '7800222333'),
-(NEXT VALUE FOR seq_User_ID, 3, 'Алексей', 'Сидоров', 'г.Минск, ул. Киселева, д.13', '+37560000003', 'sidorov@mail.ru', NULL),
-(NEXT VALUE FOR seq_User_ID, 3, 'Мария', 'Васильева', 'г.Минск, ул. Жудра, д.50', '+37560000004', 'vasilieva@mail.ru', NULL),
-(NEXT VALUE FOR seq_User_ID, 2, 'Дмитрий', 'Козлов', 'г.Минск, ул. Кижеватова, д.26', '+37560000005', 'kozlov@mail.ru', '7400555666');
+(NEXT VALUE FOR seq_User_ID, 4, 'РРІР°РЅ', 'РРІР°РЅРѕРІ', 'Рі.РњРёРЅСЃРє, СѓР». РќРµР·Р°РІРёСЃРёРјРѕСЃС‚СЊ, Рґ.20', '+37560000001', 'ivanov@mail.ru', NULL),
+(NEXT VALUE FOR seq_User_ID, 2, 'РћР»СЊРіР°', 'РџРµС‚СЂРѕРІР°', 'Рі.РњРёРЅСЃРє, СѓР». РџР°СЂС‚РёР·Р°РЅСЃРєР°СЏ, Рґ.15', '+37560000002', 'petrova@mail.ru', '7800222333'),
+(NEXT VALUE FOR seq_User_ID, 3, 'РђР»РµРєСЃРµР№', 'РЎРёРґРѕСЂРѕРІ', 'Рі.РњРёРЅСЃРє, СѓР». РљРёСЃРµР»РµРІР°, Рґ.13', '+37560000003', 'sidorov@mail.ru', NULL),
+(NEXT VALUE FOR seq_User_ID, 3, 'РњР°СЂРёСЏ', 'Р’Р°СЃРёР»СЊРµРІР°', 'Рі.РњРёРЅСЃРє, СѓР». Р–СѓРґСЂР°, Рґ.50', '+37560000004', 'vasilieva@mail.ru', NULL),
+(NEXT VALUE FOR seq_User_ID, 2, 'Р”РјРёС‚СЂРёР№', 'РљРѕР·Р»РѕРІ', 'Рі.РњРёРЅСЃРє, СѓР». РљРёР¶РµРІР°С‚РѕРІР°, Рґ.26', '+37560000005', 'kozlov@mail.ru', '7400555666');
 
 INSERT INTO Payments (Payment_ID, Payment_Amount, Payment_Date, Payment_Method)
 VALUES 
-(NEXT VALUE FOR seq_Payment_ID, 28920.00, '2024-09-10', 'Карта'),
-(NEXT VALUE FOR seq_Payment_ID, 24237.60, '2024-09-15', 'Наличка'),
-(NEXT VALUE FOR seq_Payment_ID, 31437.60, '2024-09-20', 'Наличка'),
-(NEXT VALUE FOR seq_Payment_ID, 19200.00, '2024-09-25', 'Карта'),
-(NEXT VALUE FOR seq_Payment_ID, 36000.00, '2024-09-30', 'Карта');
+(NEXT VALUE FOR seq_Payment_ID, 28920.00, '2024-09-10', 'РљР°СЂС‚Р°'),
+(NEXT VALUE FOR seq_Payment_ID, 24237.60, '2024-09-15', 'РќР°Р»РёС‡РЅС‹Рµ'),
+(NEXT VALUE FOR seq_Payment_ID, 31437.60, '2024-09-20', 'РќР°Р»РёС‡РЅС‹Рµ'),
+(NEXT VALUE FOR seq_Payment_ID, 19200.00, '2024-09-25', 'РљР°СЂС‚Р°'),
+(NEXT VALUE FOR seq_Payment_ID, 36000.00, '2024-09-30', 'РљР°СЂС‚Р°');
 
 INSERT INTO Orders (Order_ID, User_ID, Car_ID, Payment_ID, Start_DateTime, End_DateTime)
 VALUES 
@@ -133,7 +133,7 @@ VALUES
 (NEXT VALUE FOR seq_Order_ID, 2, 4, 3, '2024-09-15', '2024-09-25'),
 (NEXT VALUE FOR seq_Order_ID, 5, 5, 1, '2024-09-20', '2024-09-30');
 
--- Представление для доступных автомобилей
+-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ РґРѕСЃС‚СѓРїРЅС‹С… Р°РІС‚РѕРјРѕР±РёР»РµР№
 CREATE VIEW AvailableCars AS
 SELECT 
     Car_ID, 
@@ -146,9 +146,9 @@ SELECT
 FROM Cars 
 WHERE Status_ID = 1;
 
-select * from AvailableCars;
-drop view AvailableCars;
--- Представление для всех заказов с деталями пользователя и автомобиля
+SELECT * FROM AvailableCars;
+DROP VIEW AvailableCars;
+-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ РІСЃРµС… Р·Р°РєР°Р·РѕРІ СЃ РґРµС‚Р°Р»СЏРјРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рё Р°РІС‚РѕРјРѕР±РёР»СЏ
 CREATE VIEW OrderDetails AS
 SELECT 
     O.Order_ID, 
@@ -156,7 +156,7 @@ SELECT
     U.Last_Name, 
     C.Brand, 
     C.Model,
-	C.License_Plate,
+    C.License_Plate,
     O.Start_DateTime, 
     O.End_DateTime, 
     P.Payment_Amount, 
@@ -165,22 +165,20 @@ FROM Orders O
 JOIN Users U ON O.User_ID = U.User_ID
 JOIN Cars C ON O.Car_ID = C.Car_ID
 JOIN Payments P ON O.Payment_ID = P.Payment_ID;
-
-select * from OrderDetails;
-drop view OrderDetails;
+SELECT * FROM OrderDetails;
+DROP VIEW OrderDetails;
 
 CREATE INDEX idx_Users_LastName_FirstName ON Users(Last_Name, First_Name);
 CREATE INDEX idx_Users_DriversLicence ON Users(Drivers_License);
 CREATE INDEX idx_Cars_Brand_Model ON Cars(Brand, Model);
 CREATE INDEX idx_Cars_License_Plate ON Cars(License_Plate);
 
--- Функция для расчета общей суммы арендных платежей за период
+-- Р¤СѓРЅРєС†РёСЏ РґР»СЏ СЂР°СЃС‡РµС‚Р° РѕР±С‰РµР№ СЃСѓРјРјС‹ Р°СЂРµРЅРґРЅС‹С… РїР»Р°С‚РµР¶РµР№ Р·Р° РїРµСЂРёРѕРґ
 CREATE FUNCTION GetRentalIncomeForRole(@RoleName VARCHAR(50), @StartDate DATE, @EndDate DATE)
 RETURNS DECIMAL(10, 2)
 AS
 BEGIN
     DECLARE @TotalIncome DECIMAL(10, 2);
-
     SELECT @TotalIncome = SUM(P.Payment_Amount)
     FROM Orders O
     JOIN Payments P ON O.Payment_ID = P.Payment_ID
@@ -189,16 +187,13 @@ BEGIN
     WHERE R.Role_Name = @RoleName 
     AND O.Start_DateTime >= @StartDate
     AND O.End_DateTime <= @EndDate;
-
     RETURN @TotalIncome; 
 END;
-
 DECLARE @RoleName VARCHAR(50) = 'User'; 
 DECLARE @StartDate DATE = '2024-09-01'; 
 DECLARE @EndDate DATE = '2024-09-30'; 
 SELECT dbo.GetRentalIncomeForRole(@RoleName, @StartDate, @EndDate) AS TotalRentalIncome;
-
--- Процедура для создания нового заказа
+-- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РЅРѕРІРѕРіРѕ Р·Р°РєР°Р·Р°
 CREATE PROCEDURE InsertOrder
     @UserID INT,
     @CarID INT,
@@ -216,18 +211,16 @@ BEGIN
         AND (Start_DateTime < @EndDateTime AND End_DateTime > @StartDateTime)
     )
     BEGIN
-        RAISERROR('Автомобиль недоступен на указанные даты', 16, 1);
+        RAISERROR('РђРІС‚РѕРјРѕР±РёР»СЊ РЅРµРґРѕСЃС‚СѓРїРµРЅ РЅР° СѓРєР°Р·Р°РЅРЅС‹Рµ РґР°С‚С‹', 16, 1);
         RETURN;
     END;
-
     DECLARE @PaymentID INT;
     
     INSERT INTO Payments (Payment_ID, Payment_Amount, Payment_Date, Payment_Method)
     VALUES (NEXT VALUE FOR seq_Payment_ID, @PaymentAmount, @PaymentDate, @PaymentMethod);
     
     SET @PaymentID = SCOPE_IDENTITY();
-
-    INSERT INTO Orders (Order_ID,User_ID, Car_ID, Payment_ID, Start_DateTime, End_DateTime)
+    INSERT INTO Orders (Order_ID, User_ID, Car_ID, Payment_ID, Start_DateTime, End_DateTime)
     VALUES (NEXT VALUE FOR seq_Order_ID, @UserID, @CarID, @PaymentID, @StartDateTime, @EndDateTime);
 END;
 
@@ -236,16 +229,17 @@ DROP procedure InsertOrder;
 select * from Payments;
 select * from Orders;
 select * from Cars;
+
 EXEC InsertOrder 
     @UserID = 5, 
     @CarID = 4, 
     @PaymentAmount = 130.00, 
     @PaymentDate = '2024-10-10', 
-    @PaymentMethod = 'Карта', 
+    @PaymentMethod = 'РљР°СЂС‚Р°', 
     @StartDateTime = '2024-10-01', 
     @EndDateTime = '2024-10-05';
 
--- Триггер для автоматического обновления статуса автомобиля при создании нового заказа
+-- РўСЂРёРіРіРµСЂ РґР»СЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ СЃС‚Р°С‚СѓСЃР° Р°РІС‚РѕРјРѕР±РёР»СЏ РїСЂРё СЃРѕР·РґР°РЅРёРё РЅРѕРІРѕРіРѕ Р·Р°РєР°Р·Р°
 CREATE TRIGGER trg_AutoUpdateCarStatus
 ON Orders
 AFTER INSERT
@@ -257,14 +251,14 @@ BEGIN
 END;
 
 INSERT INTO Payments (Payment_ID, Payment_Amount, Payment_Date, Payment_Method)
-VALUES (NEXT VALUE FOR seq_Payment_ID, 150.00, '2024-10-01', 'Карта');
+VALUES (NEXT VALUE FOR seq_Payment_ID, 150.00, '2024-10-01', 'РљР°СЂС‚Р°');
 
 INSERT INTO Orders (Order_ID, User_ID, Car_ID, Payment_ID, Start_DateTime, End_DateTime)
 VALUES (NEXT VALUE FOR seq_Order_ID, 5, 1, 6, '2024-10-01', '2024-10-05');
 
 SELECT Car_ID, Status_ID FROM Cars WHERE Car_ID = 1;
 
--- Проверка на дублирующийся платеж
+-- РўСЂРёРіРіРµСЂ РґР»СЏ РїСЂРѕРІРµСЂРєРё РЅР° РґСѓР±Р»РёСЂСѓСЋС‰РёР№СЃСЏ РїР»Р°С‚РµР¶
 CREATE TRIGGER trg_CheckDuplicatePayment
 ON Payments
 INSTEAD OF INSERT
@@ -279,7 +273,7 @@ BEGIN
         AND p.Payment_Method = i.Payment_Method
     )
     BEGIN
-        RAISERROR('Платеж с такими же данными уже существует', 16, 1);
+        RAISERROR('РџР»Р°С‚РµР¶ СЃ С‚Р°РєРёРјРё Р¶Рµ РґР°РЅРЅС‹РјРё СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚', 16, 1);
         ROLLBACK TRANSACTION;
     END
     ELSE
@@ -292,9 +286,9 @@ END;
 
 INSERT INTO Payments (Payment_ID, Payment_Amount, Payment_Date, Payment_Method)
 VALUES 
-(NEXT VALUE FOR seq_Payment_ID, 130.00, '2024-05-10', 'Карта');
+(NEXT VALUE FOR seq_Payment_ID, 130.00, '2024-05-10', 'РљР°СЂС‚Р°');
 
--- Триггер на таблицу Orders, который проверяет, что дата окончания не раньше даты начала
+-- РўСЂРёРіРіРµСЂ РґР»СЏ РїСЂРѕРІРµСЂРєРё РґР°С‚ РІ С‚Р°Р±Р»РёС†Рµ Orders
 CREATE TRIGGER trg_CheckOrderDates
 ON Orders
 FOR INSERT, UPDATE
@@ -302,7 +296,7 @@ AS
 BEGIN
     IF EXISTS (SELECT 1 FROM inserted WHERE End_DateTime < Start_DateTime)
     BEGIN
-        RAISERROR('Дата окончания аренды не может быть раньше даты начала.', 16, 1);
+        RAISERROR('Р”Р°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ Р°СЂРµРЅРґС‹ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°РЅСЊС€Рµ РґР°С‚С‹ РЅР°С‡Р°Р»Р°.', 16, 1);
         ROLLBACK TRANSACTION;
     END
 END;

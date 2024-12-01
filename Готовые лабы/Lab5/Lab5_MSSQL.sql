@@ -3,26 +3,26 @@ create database Map;
 SELECT SCHEMA_NAME
 FROM INFORMATION_SCHEMA.SCHEMATA
 
--- 6.Определите тип пространственных данных во всех таблицах
+-- 6.РћРїСЂРµРґРµР»РёС‚Рµ С‚РёРї РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РґР°РЅРЅС‹С… РІРѕ РІСЃРµС… С‚Р°Р±Р»РёС†Р°С…
 SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_SCHEMA = 'dbo'
 
--- 7.Определите SRID - идентификатор системы координат
+-- 7.РћРїСЂРµРґРµР»РёС‚Рµ SRID - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРёСЃС‚РµРјС‹ РєРѕРѕСЂРґРёРЅР°С‚
 SELECT SRID FROM dbo.spatial_ref_sys;
 SELECT SRID FROM dbo.geometry_columns;
 
--- 8.Определите атрибутивные столбцы
+-- 8.РћРїСЂРµРґРµР»РёС‚Рµ Р°С‚СЂРёР±СѓС‚РёРІРЅС‹Рµ СЃС‚РѕР»Р±С†С‹
 SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_SCHEMA = 'dbo' AND DATA_TYPE != 'geometry'
 
--- 9.Верните описания пространственных объектов в формате WKT
+-- 9.Р’РµСЂРЅРёС‚Рµ РѕРїРёСЃР°РЅРёСЏ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ РІ С„РѕСЂРјР°С‚Рµ WKT
 SELECT geom.STAsText() AS WKT FROM ne_110m_geography_regions_polys;
 
 ----
 SELECT * FROM ne_110m_geography_regions_polys order by name_ru;
--- 10.1.Нахождение пересечения пространственных объектов;
+-- 10.1.РќР°С…РѕР¶РґРµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ;
 SELECT obj1.geom.STIntersection(obj2.geom) AS Intersection
 FROM ne_110m_geography_regions_polys obj1, ne_110m_geography_regions_polys obj2
 WHERE obj1.qgs_fid = 3 AND obj2.qgs_fid = 5;
@@ -30,7 +30,7 @@ WHERE obj1.qgs_fid = 3 AND obj2.qgs_fid = 5;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 3;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 5;
 
--- 10.2.Нахождение объединения пространственных объектов;
+-- 10.2.РќР°С…РѕР¶РґРµРЅРёРµ РѕР±СЉРµРґРёРЅРµРЅРёСЏ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ;
 SELECT obj1.geom.STUnion(obj2.geom) AS [Union]
 FROM ne_110m_geography_regions_polys obj1, ne_110m_geography_regions_polys obj2
 WHERE obj1.qgs_fid = 3 AND obj2.qgs_fid = 57;
@@ -38,32 +38,32 @@ WHERE obj1.qgs_fid = 3 AND obj2.qgs_fid = 57;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 3;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 57;
 
--- 10.3.Нахождение вложенности пространственных объектов;
+-- 10.3.РќР°С…РѕР¶РґРµРЅРёРµ РІР»РѕР¶РµРЅРЅРѕСЃС‚Рё РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ;
 SELECT obj1.geom.STWithin(obj2.geom) AS [Within]
 FROM ne_110m_geography_regions_polys obj1, ne_110m_geography_regions_polys obj2
 WHERE obj1.qgs_fid = 41 AND obj2.qgs_fid = 7;
 
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 41;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 7;
--- 10.4.Упрощение пространственного объекта;
+-- 10.4.РЈРїСЂРѕС‰РµРЅРёРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°;
 SELECT geom.Reduce(0.1) AS Reduce
 FROM ne_110m_geography_regions_polys WHERE qgs_fid = 57;
 
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 57;
 
--- 10.5.Нахождение координат вершин пространственного объектов
+-- 10.5.РќР°С…РѕР¶РґРµРЅРёРµ РєРѕРѕСЂРґРёРЅР°С‚ РІРµСЂС€РёРЅ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅРѕРіРѕ РѕР±СЉРµРєС‚РѕРІ
 SELECT geom.STPointN(1).ToString() ASCoordinates
 FROM ne_110m_geography_regions_polys WHERE qgs_fid = 57;
 
--- 10.6.Нахождение размерности пространственных объектов
+-- 10.6.РќР°С…РѕР¶РґРµРЅРёРµ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ
 SELECT geom.STDimension() AS Dimension
 FROM ne_110m_geography_regions_polys WHERE qgs_fid = 57;
 
--- 10.7.Нахождение длины и площади пространственных объектов;
+-- 10.7.РќР°С…РѕР¶РґРµРЅРёРµ РґР»РёРЅС‹ Рё РїР»РѕС‰Р°РґРё РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ;
 SELECT geom.STLength() AS [Length], geom.STArea() AS Area
 FROM ne_110m_geography_regions_polys WHERE qgs_fid = 57;
 
--- 10.8.Нахождение расстояния между пространственными объектами;
+-- 10.8.РќР°С…РѕР¶РґРµРЅРёРµ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ РјРµР¶РґСѓ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹РјРё РѕР±СЉРµРєС‚Р°РјРё;
 SELECT obj1.geom.STDistance(obj2.geom) AS Distance
 FROM ne_110m_geography_regions_polys obj1, ne_110m_geography_regions_polys obj2
 WHERE obj1.qgs_fid = 57 AND obj2.qgs_fid = 3;
@@ -71,7 +71,7 @@ WHERE obj1.qgs_fid = 57 AND obj2.qgs_fid = 3;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 3;
 SELECT name_ru FROM ne_110m_geography_regions_polys n WHERE n.qgs_fid = 57;
 
--- 11.	Создайте пространственный объект в виде точки (1) /линии (2) /полигона (3).
+-- 11.	РЎРѕР·РґР°Р№С‚Рµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚ РІ РІРёРґРµ С‚РѕС‡РєРё (1) /Р»РёРЅРёРё (2) /РїРѕР»РёРіРѕРЅР° (3).
 DECLARE @pointGeometry GEOMETRY;
 SET @pointGeometry = GEOMETRY::STGeomFromText('POINT(3 57)', 0);
 SELECT @pointGeometry AS PointGeometry;
@@ -84,8 +84,8 @@ DECLARE @polygonGeometry GEOMETRY;
 SET @polygonGeometry = GEOMETRY::STGeomFromText('POLYGON((1 1, 1 100, 100 100, 100 1, 1 1))', 0);
 SELECT @polygonGeometry AS PolygonGeometry;
 
--- 12.	Найдите, в какие пространственные объекты попадают созданные вами объекты
--- точка и полигон
+-- 12.	РќР°Р№РґРёС‚Рµ, РІ РєР°РєРёРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕРїР°РґР°СЋС‚ СЃРѕР·РґР°РЅРЅС‹Рµ РІР°РјРё РѕР±СЉРµРєС‚С‹
+-- С‚РѕС‡РєР° Рё РїРѕР»РёРіРѕРЅ
 GO
 DECLARE @pointGeometry GEOMETRY;
 SET @pointGeometry = GEOMETRY::STGeomFromText('POINT(3 57)', 0);
